@@ -1,0 +1,53 @@
+
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>
+      New Projection
+    </h2>
+    <form (ngSubmit)="onSubmit(projectionForm.value)" #projectionForm="ngForm" class="form-horizontal">
+      <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="projection.id" name="id"/>
+      </div>
+      
+      <div class="form-group has-feedback" [class.has-success]="projectionName.dirty && projectionName.valid" [class.has-error]="projectionName.dirty &&  !projectionName.valid">
+        <label for="projectionName" class="col-sm-2 control-label">Projection Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="projectionName" [(ngModel)]="projection.projectionName" minlength="2" required name="projectionName" #projectionName="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="projectionName.valid" [class.glyphicon-remove]="!projectionName.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="projectionName.dirty && projectionName.hasError('required')">Projection name is required</span>
+          <span class="help-block" *ngIf="projectionName.dirty && projectionName.hasError('minlength')">Projection name must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="programName.dirty && programName.valid" [class.has-error]="programName.dirty &&  !programName.valid">
+        <label for="programName" class="col-sm-2 control-label">Program Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="programName" [(ngModel)]="projection.programName" minlength="2" required name="programName" #programName="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="programName.valid" [class.glyphicon-remove]="!programName.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="programName.dirty && programName.hasError('required')">Program name is required</span>
+          <span class="help-block" *ngIf="programName.dirty && programName.hasError('minlength')">Program name must be at least 2 characters long</span>
+        </div>
+      </div>
+
+<!--       <div class="form-group has-feedback" [class.has-success]="test.dirty && test.valid" [class.has-error]="test.dirty && !test.valid">
+        <label for="test" class="col-sm-2 control-label">Test select box</label>
+        <div class="col-sm-10">
+        <select>
+        	
+        </select>
+          <input type="text" class="form-control" id="test" [(ngModel)]="projection.test" name="test" required #test="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="test.valid" [class.glyphicon-remove]="!test.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="test.dirty && test.hasError('required')">Department is required</span>
+        </div>
+      </div> -->      
+
+
+     
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-default" type="button" (click)="gotoProjectionsList()">Back</button>
+          <button class="btn btn-default" type="submit" [disabled]="!projectionForm.valid">Add Projection</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

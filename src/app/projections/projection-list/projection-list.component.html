@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>Projections</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+         <th>Projection Name</th>
+          <th>Program Name</th>
+           <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <!-- <a  routerLink="/projections/{{projection.id}}" routerLinkActive="active" -->
+        <tr *ngFor="let projection of projections">
+          <td class="projectionFullName"><a routerLink="/projections/{{projection.id}}" routerLinkActive="active"
+                                       (click)="onSelect(projection)">{{projection.projectionName}}</a></td>
+          <td>{{projection.programName}}</td>
+         <td class="projectionFullName"><a routerLink="/projections/{{projection.id}}" routerLinkActive="active"
+                                       (click)="onDelete(projection)">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-default" (click)="addProjection()">Add Projection</button>
+      </div>
+    </div>
+  </div>
+</div>

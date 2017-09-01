@@ -1,0 +1,103 @@
+
+
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>
+      New Program
+    </h2>
+    <form (ngSubmit)="onSubmit(programForm.value)" #programForm="ngForm" class="form-horizontal">
+      <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="program.id" name="id"/>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="programName.dirty && programName.valid" [class.has-error]="programName.dirty &&  !programName.valid">
+        <label for="programName" class="col-sm-2 control-label">Program Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="programName" [(ngModel)]="program.programName" minlength="2" required name="programName" #programName="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="programName.valid" [class.glyphicon-remove]="!programName.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="programName.dirty && programName.hasError('required')">Program name is required</span>
+          <span class="help-block" *ngIf="programName.dirty && programName.hasError('minlength')">Program name must be at least 2 characters long</span>
+        </div>
+      </div>
+   <!--  <div class="form-group ">
+          <label for="type" class="col-sm-2 control-label">Buyer </label>
+          <div class="col-sm-10">
+            <select id="type" name="type" class="form-control" [(ngModel)]="program.buyer">
+              <option [ngValue]="type">Susan</option>
+            </select>
+          </div>
+        </div> -->
+      <!--
+        <div class="control-group">
+        <div class="form-group ">
+          <label for="type" class="col-sm-2 control-label">Type </label>
+          <div class="col-sm-10">
+            <select id="type" name="type" class="form-control" [(ngModel)]="pet.type">
+              <option *ngFor="let type of pet_types"
+                      [ngValue]="type">{{ type.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div> 
+       -->
+      <div class="form-group has-feedback" [class.has-success]="buyer.dirty && buyer.valid" [class.has-error]="buyer.dirty && !buyer.valid">
+        <label for="buyer" class="col-sm-2 control-label">Buyer</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="buyer" [(ngModel)]="program.buyer" name="buyer" minlength="2" required #buyer="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="buyer.valid" [class.glyphicon-remove]="!buyer.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="buyer.dirty && buyer.hasError('required')">buyer is required</span>
+          <span class="help-block" *ngIf="buyer.dirty && buyer.hasError('minlength')">buyer must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="dept.dirty && dept.valid" [class.has-error]="dept.dirty && !dept.valid">
+        <label for="dept" class="col-sm-2 control-label">Department</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="dept" [(ngModel)]="program.dept" name="dept" required #dept="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="dept.valid" [class.glyphicon-remove]="!dept.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="dept.dirty && dept.hasError('required')">Department is required</span>
+        </div>
+      </div>
+<!--       <div class="form-group has-feedback" [class.has-success]="test.dirty && test.valid" [class.has-error]="test.dirty && !test.valid">
+        <label for="test" class="col-sm-2 control-label">Test select box</label>
+        <div class="col-sm-10">
+        <select>
+        	
+        </select>
+          <input type="text" class="form-control" id="test" [(ngModel)]="program.test" name="test" required #test="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="test.valid" [class.glyphicon-remove]="!test.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="test.dirty && test.hasError('required')">Department is required</span>
+        </div>
+      </div> -->      
+      <div class="form-group has-feedback" [class.has-success]="season.dirty && season.valid" [class.has-error]="season.dirty && !season.valid">
+        <label for="season" class="col-sm-2 control-label">Season</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="season" [(ngModel)]="program.season" name="season" required #season="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="season.valid" [class.glyphicon-remove]="!season.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="season.dirty && season.hasError('required')">Season is required</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="brand.dirty && brand.valid" [class.has-error]="brand.dirty && !brand.valid">
+        <label for="brand" class="col-sm-2 control-label">Brand</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="brand" [(ngModel)]="program.brand" name="brand" required #brand="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="brand.valid" [class.glyphicon-remove]="!brand.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="brand.dirty && brand.hasError('required')">Brand is required</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="cluster.dirty && cluster.valid" [class.has-error]="cluster.dirty && !cluster.valid">
+        <label for="cluster" class="col-sm-2 control-label">cluster</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="cluster" [(ngModel)]="program.cluster" name="cluster" required #cluster="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="cluster.valid" [class.glyphicon-remove]="!cluster.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="cluster.dirty && cluster.hasError('required')">cluster is required</span>
+        </div>
+      </div>      
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-default" type="button" (click)="gotoProgramsList()">Back</button>
+          <button class="btn btn-default" type="submit" [disabled]="!programForm.valid">Add Program</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

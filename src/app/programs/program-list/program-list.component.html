@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>Programs</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+         <th>Program Name</th>
+          <th>Buyer</th>
+          <th>Department</th>
+          <th>Season</th>
+          <th>Brand</th>
+          <th>Cluster</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <!-- <a  routerLink="/programs/{{program.id}}" routerLinkActive="active" -->
+        <tr *ngFor="let program of programs">
+          <td class="programFullName"><a routerLink="/programs/{{program.id}}" routerLinkActive="active"
+                                       (click)="onSelect(program)">{{program.programName}}</a></td>
+          <td>{{program.buyer}}</td>
+          <td>{{program.dept}}</td>
+          <td>{{program.season}}</td>
+          <td>{{program.brand}}</td>
+          <td>{{program.cluster}}</td>
+          <td style="color:red"><a routerLink="/programs/{{program.id}}" routerLinkActive="active"
+                                       (click)="onDelete(program)">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-default" (click)="addProgram()">Add Program</button>
+      </div>
+    </div>
+  </div>
+</div>
